@@ -45,8 +45,7 @@ BEGIN
 				0
 		 END TotalDistance
       FROM Estaciones
-      WHERE 1=1
-      AND ((@iniFin = 1 AND (PA = @strt))
+      WHERE ((@iniFin = 1 AND (PA = @strt))
       OR  (@iniFin = 0 AND (PB = @strt)))
       UNION ALL
       SELECT CASE WHEN @iniFin = 1 THEN a.PB
@@ -62,8 +61,7 @@ BEGIN
 					TotalDistance 
 			 END TotDistance
       FROM Estaciones a, Tabla1 c
-      WHERE 1=1
-      AND ((@iniFin = 1 and a.PA = c.PB)
+      WHERE ((@iniFin = 1 and a.PA = c.PB)
       OR (@iniFin = 0 and a.PB = c.PB))
       ),
    Tabla2
